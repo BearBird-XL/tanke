@@ -30,6 +30,7 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         // x y表示坐标   width height 显示内容的大小
+        g.setColor(new Color(334455));
         g.fillRect(200, 200, 50, 50);
     }
 }
