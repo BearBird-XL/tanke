@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         TankFrame tankFrame = new TankFrame();
-        for (; ; ) {
+        for (int i = 0; i < 20; i++) {
             TimeUnit.MILLISECONDS.sleep(100);
             tankFrame.repaint();
         }
