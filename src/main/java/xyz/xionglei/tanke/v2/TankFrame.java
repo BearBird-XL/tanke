@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
  */
 public class TankFrame extends Frame {
 
+    int x = 200, y = 200;
     public TankFrame() throws HeadlessException {
         this.setSize(800, 600);
         this.setResizable(false);
@@ -31,6 +32,9 @@ public class TankFrame extends Frame {
     public void paint(Graphics g) {
         // x y表示坐标   width height 显示内容的大小
         g.setColor(new Color(334455));
-        g.fillRect(200, 200, 50, 50);
+        System.out.println("TankFrame.paint");
+        g.fillRect(x, y, 50, 50);
+        x += 30;
+        y += 30;
     }
 }
