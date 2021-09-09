@@ -34,11 +34,9 @@ public class TankFrame extends Frame {
             @Override
             public void keyReleased(KeyEvent e) {
                 // System.out.println("TankFrame.keyReleased");
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                // System.out.println("TankFrame.keyPressed");
+//                x += 20;
+//                y += 20;
+                // repaint();
             }
         });
     }
@@ -49,7 +47,6 @@ public class TankFrame extends Frame {
         g.setColor(new Color(334455));
         System.out.println("TankFrame.paint");
         g.fillRect(x, y, 50, 50);
-        x += 30;
-        y += 30;
+        x += 20;
     }
 }
