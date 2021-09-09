@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
 
     Tank myTank = new Tank(200, 200, Dir.DOWN);
+    Bullet bullet = new Bullet(100, 0, 10, 10, Color.PINK, 10, Dir.DOWN);
 
     public TankFrame() throws HeadlessException {
         this.setSize(800, 600);
@@ -33,5 +34,6 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         myTank.paint(g);
+        bullet.paint(g);
     }
 }
