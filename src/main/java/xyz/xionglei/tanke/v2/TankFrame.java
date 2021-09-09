@@ -1,6 +1,8 @@
 package xyz.xionglei.tanke.v2;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -13,6 +15,7 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
 
     int x = 200, y = 200;
+
     public TankFrame() throws HeadlessException {
         this.setSize(800, 600);
         this.setResizable(false);
@@ -24,6 +27,18 @@ public class TankFrame extends Frame {
             @Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
+            }
+        });
+
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // System.out.println("TankFrame.keyReleased");
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // System.out.println("TankFrame.keyPressed");
             }
         });
     }
