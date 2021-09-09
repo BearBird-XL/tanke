@@ -14,11 +14,13 @@ import java.awt.event.WindowEvent;
  */
 public class TankFrame extends Frame {
 
-    int x = 200, y = 200;
+    private int x = 200, y = 200;
     // 四个布尔值 表示上下左右
-    boolean bU, bD, bR, bL;
+    private boolean bU, bD, bR, bL;
     // 方向
-    Dir dir;
+    private Dir dir = Dir.DOWN;
+    // 移動速度
+    private static final int SPEED = 10;
 
     public TankFrame() throws HeadlessException {
         this.setSize(800, 600);
@@ -59,6 +61,22 @@ public class TankFrame extends Frame {
                         bR = true;
                         break;
                 }
+                setMainTankDir();
+            }
+
+            private void setMainTankDir() {
+                if (bU) {
+                    dir = Dir.UP;
+                }
+                if (bD) {
+                    dir = Dir.DOWN;
+                }
+                if (bL) {
+                    dir = Dir.LEFT;
+                }
+                if (bR) {
+                    dir = Dir.RIGHT;
+                }
             }
         });
     }
@@ -66,23 +84,23 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         // x y表示坐标   width height 显示内容的大小
-        int p = 20;
+        switch (dir) {
+            case UP:
+                y -= SPEED;
+                break;
+            case DOWN:
+                y += SPEED;
+                break;
+            case LEFT:
+                x -= SPEED;
+                break;
+            case RIGHT:
+                x += SPEED;
+                break;
+        }
 
         g.fillRect(x, y, 50, 50);
     }
 
-    private void setMainTankDir() {
-        if (bU) {
-            dir = Dir.UP;
-        }
-        if (bD) {
-            dir = Dir.DOWN;
-        }
-        if (bL) {
-            dir = Dir.LEFT;
-        }
-        if (bR) {
-            dir = Dir.RIGHT;
-        }
-    }
+
 }
