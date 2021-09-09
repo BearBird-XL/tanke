@@ -15,10 +15,8 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
 
     private int x = 200, y = 200;
-    // 四个布尔值 表示上下左右
-    private boolean bU, bD, bR, bL;
     // 方向
-    private Dir dir = Dir.DOWN;
+    private Dir dir = Dir.STOP;
     // 移動速度
     private static final int SPEED = 10;
 
@@ -37,13 +35,13 @@ public class TankFrame extends Frame {
         });
 
         this.addKeyListener(new KeyAdapter() {
-
+            // 四个布尔值 表示上下左右
+            private boolean bU, bD, bR, bL;
             @Override
             public void keyReleased(KeyEvent e) {
                 // 释放按键, 值重置
                 bU = bD = bL = bR = false;
             }
-
             @Override
             public void keyPressed(KeyEvent e) {
                 int key = e.getKeyCode();
@@ -63,7 +61,6 @@ public class TankFrame extends Frame {
                 }
                 setMainTankDir();
             }
-
             private void setMainTankDir() {
                 if (bU) {
                     dir = Dir.UP;
