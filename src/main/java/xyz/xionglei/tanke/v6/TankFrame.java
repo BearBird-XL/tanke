@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
 
     Tank myTank = new Tank(200, 200, Dir.DOWN);
-    Bullet bullet = new Bullet(100, 0, 10, 10, Color.RED, 10, Dir.DOWN);
+    Bullet bullet = new Bullet(100, 0, 10, 10, Color.RED, 5, Dir.DOWN);
 
     public TankFrame() throws HeadlessException {
         this.setSize(800, 600);
