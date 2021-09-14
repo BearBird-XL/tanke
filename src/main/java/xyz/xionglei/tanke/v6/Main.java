@@ -3,6 +3,7 @@ package xyz.xionglei.tanke.v6;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 主类.启动类
  * @author xionglei
  * @create 2021-09-08 17:48
  */

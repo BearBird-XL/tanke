@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 import java.awt.*;
 
 /**
+ * 子弹类
  * @author xionglei
  * @create 2021-09-09 12:09
  */
@@ -16,7 +17,6 @@ import java.awt.*;
 @Accessors(chain = true)
 @AllArgsConstructor
 public class Bullet {
-
 
     // 子弹位置
     private int x, y;
@@ -29,6 +29,10 @@ public class Bullet {
     // 方向
     private Dir dir;
 
+    /**
+     * 绘制子弹
+     * @param g 画笔
+     */
     public void paint(Graphics g) {
         // x y表示坐标   width height 显示内容的大小
         Color oldColor = g.getColor();
