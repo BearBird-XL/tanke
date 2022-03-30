@@ -27,12 +27,14 @@ public class Tank {
     private int width, height;
     // 移动方向
     private Dir dir;
-    // 移动还是静止状态
-    private boolean moving;
+    // 坦克移动还是静止状态
+    private boolean isMoving;
     // 事件
     private TankAdapter tankAdapter = new TankAdapter();
+    // TankFrame 用于画子弹
+    private TankFrame tankFarm;
 
-    public Tank(int x, int y, Dir dir) {
+    public Tank(int x, int y, Dir dir, Frame frame) {
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -52,7 +54,7 @@ public class Tank {
 
     // 移动
     private void move() {
-        if (moving) {
+        if (isMoving) {
             switch (dir) {
                 case UP:
                     y -= SPEED;
@@ -72,7 +74,7 @@ public class Tank {
 
 
     private class TankAdapter extends KeyAdapter {
-        // 四个布尔值 表示上下左右
+        // 四个布尔值 表示表示往上下左右移动
         private boolean bU, bD, bR, bL;
 
         @Override
@@ -93,9 +95,12 @@ public class Tank {
                     break;
             }
             setMainTankDir();
-            setMoving(true);
+            setMoving(bL || bR || bD || bU);
         }
 
+        /**
+         * 设置根据按键设置tank的方向与是否移动
+         */
         private void setMainTankDir() {
             if (bU) {
                 dir = Dir.UP;
@@ -113,9 +118,35 @@ public class Tank {
 
         @Override
         public void keyReleased(KeyEvent e) {
-            setMoving(false);
+            int key = e.getKeyCode();
             // 释放按键, 值重置
-            bU = bD = bL = bR = false;
+            switch (key) {
+                // 坦克移动方向
+                case KeyEvent.VK_UP:
+                    bU = false;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    bD = false;
+                    break;
+                case KeyEvent.VK_LEFT:
+                    bL = false;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    bR = false;
+                    break;
+                case KeyEvent.VK_CONTROL:
+                    // 子弹
+                    fire();
+                    break;
+            }
+            setMoving(bL || bR || bD || bU);
+        }
+
+        /**
+         * 坦克打出一颗子弹
+         */
+        private void fire() {
+            getTankFarm().setBullet(new Bullet(x, y, 5, 5, Color.CYAN, 10, dir));
         }
     }
 }

@@ -1,5 +1,7 @@
 package xyz.xionglei.tanke.v7;
 
+import lombok.Data;
+
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -10,11 +12,12 @@ import java.awt.event.WindowEvent;
  * @author xionglei
  * @create 2021-09-08 17:44
  */
+@Data
 public class TankFrame extends Frame {
     private static final int GAME_WIDTH = 800;
     private static final int GAME_HEIGHT = 600;
 
-    Tank myTank = new Tank(200, 200, Dir.DOWN);
+    Tank myTank = new Tank(200, 200, Dir.DOWN, this);
     Bullet bullet = new Bullet(100, 0, 10, 10, Color.RED, 5, Dir.DOWN);
 
     public TankFrame() throws HeadlessException {
