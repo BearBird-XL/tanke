@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.annamaple'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // https://mvnrepository.com/artifact/cn.hutool/hutool-all
+    // hutool 工具类 core对项目的依赖无污染
+    implementation group: 'cn.hutool', name: 'hutool-core', version: '5.7.22'
+
+}
+
+test {
+    useJUnitPlatform()
+}
