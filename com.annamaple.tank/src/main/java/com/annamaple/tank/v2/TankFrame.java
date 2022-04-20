@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+
 /**
  * 集成Frame,重写Frame
  *
