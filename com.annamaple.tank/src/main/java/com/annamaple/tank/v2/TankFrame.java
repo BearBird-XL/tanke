@@ -3,6 +3,8 @@ package com.annamaple.tank.v2;
 import cn.hutool.core.lang.Console;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -28,6 +30,11 @@ public class TankFrame extends Frame {
         this.setTitle("tank war");
         // 设置可见
         this.setVisible(true);
+
+        // 添加键盘监听
+        this.addKeyListener(new MyKeyListener());
+
+        // 窗口时间监听
         // 设置点击关闭按钮程序退出
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -45,5 +52,37 @@ public class TankFrame extends Frame {
         g.fillRect(x, y, 50, 50);
         x += 10;
         y += 10;
+    }
+
+
+    class MyKeyListener extends KeyAdapter {
+        
+        @Override
+        public void keyTyped(KeyEvent e) {
+            super.keyTyped(e);
+        }
+
+        /**
+         * 当有键盘按下时调用
+         *
+         * @param e 键盘事件
+         */
+        @Override
+        public void keyPressed(KeyEvent e) {
+            Console.log("keyPressed");
+            super.keyPressed(e);
+        }
+
+
+        /**
+         * 当有键盘抬起时调用
+         *
+         * @param e 键盘事件
+         */
+        @Override
+        public void keyReleased(KeyEvent e) {
+            Console.log("keyReleased");
+            super.keyReleased(e);
+        }
     }
 }
