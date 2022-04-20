@@ -1,6 +1,7 @@
 package com.annamaple.tank.v2;
 
 import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author xionglei
@@ -8,7 +9,11 @@ import java.awt.*;
  */
 public class T {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Frame f = new TankFrame();
+        for (;;) {
+            TimeUnit.MILLISECONDS.sleep(50);
+            f.repaint();
+        }
     }
 }

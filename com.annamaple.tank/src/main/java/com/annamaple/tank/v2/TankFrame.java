@@ -47,11 +47,9 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        Console.log("paint x:{} y:{}", x, y);
+        // Console.log("paint x:{} y:{}", x, y);
         // 填充一个矩形
         g.fillRect(x, y, 50, 50);
-        x += 10;
-        y += 10;
     }
 
 
@@ -69,8 +67,9 @@ public class TankFrame extends Frame {
          */
         @Override
         public void keyPressed(KeyEvent e) {
-            Console.log("keyPressed");
-            super.keyPressed(e);
+            x += 30;
+            // repaint()会调用Tank的Paint()
+            // repaint();
         }
 
 
@@ -81,8 +80,6 @@ public class TankFrame extends Frame {
          */
         @Override
         public void keyReleased(KeyEvent e) {
-            Console.log("keyReleased");
-            super.keyReleased(e);
         }
     }
 }
